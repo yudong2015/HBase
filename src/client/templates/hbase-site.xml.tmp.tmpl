@@ -7,7 +7,7 @@
     {{if eq $phoenix "true"}}
         ,"phoenix.transactions.enabled": "{{getv "/env/phoenix.transactions.enabled"}}",
         "hbase.regionserver.wal.codec": "org.apache.hadoop.hbase.regionserver.wal.IndexedWALEditCodec",
-        "data.tx.snapshot.dir": "/tephra/snapshots"
+        "data.tx.snapshot.dir": "/phoenix/transactions/snapshots"
     {{end}}
   {{end}}
 }

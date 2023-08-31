@@ -6,8 +6,8 @@ HOME_DIR=/opt
 role=$1
 
 cd ${HOME_DIR}
-wget https://raw.githubusercontent.com/QingCloudAppcenter/HBase/master/src/scripts/migrate.sh
-wget https://raw.githubusercontent.com/QingCloudAppcenter/HBase/master/src/scripts/make_image.sh
+wget https://raw.githubusercontent.com/yudong2015/HBase/2.4.4-v3.0.0-dev/src/scripts/migrate.sh
+wget https://raw.githubusercontent.com/yudong2015/HBase/2.4.4-v3.0.0-dev/src/scripts/make_image.sh
 
 sh make_image.sh
 if [ "x$role" = "xclient" ]

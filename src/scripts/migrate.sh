@@ -10,9 +10,16 @@ VERSION=$(curl -L -s https://api.github.com/repos/QingCloudAppcenter/HBase/relea
 TAR_URL=https://github.com/QingCloudAppcenter/HBase/archive/${VERSION}.tar.gz
 
 cd ${HOME_DIR}
-wget ${TAR_URL}
-tar -xzvf ${VERSION}.tar.gz
-cd HBase-${VERSION}/src
+#wget ${TAR_URL}
+#tar -xzvf ${VERSION}.tar.gz
+#cd HBase-${VERSION}/src
+
+mkdir -p HBase-${VERSION}
+cd HBase-${VERSION}
+git clone https://github.com/yudong2015/HBase.git
+cd HBase
+git checkout 2.4.4-v3.0.0-dev
+cd src
 
 if [ "x$role" = "xclient" ]
 then

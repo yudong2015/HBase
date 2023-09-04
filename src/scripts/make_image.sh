@@ -41,15 +41,12 @@ cat add_log4j.properties >> hbase/conf/log4j.properties; rm -rf add_log4j.proper
 rm -rf /etc/hosts; touch /etc/hosts
 
 # lzo
-# libgplcompression.tar.gz: from hadoop-lzo/target/native
-# lzolib-2.10.tar.gz: from installed lzo/lib(https://github.com/twitter/hadoop-lzo)
-# lzop: from http://www.lzop.org/download/lzop-1.04.tar.gz
 wget ${URL}/libgplcompression.tar.gz;
 tar -xzvf libgplcompression.tar.gz; mv libgplcompression/* hadoop/lib/native/; rm -rf libgplcompression/ libgplcompression.tar.gz
 wget ${URL}/lzolib-2.10.tar.gz;
 tar -xzvf lzolib-2.10.tar.gz; cp lzolib/* /usr/lib/; mkdir -p /usr/lib64; cp lzolib/* /usr/lib64/; rm -rf lzolib lzolib-2.10.tar.gz
 wget ${URL}/lzop; mv lzop /usr/local/bin/lzop; rm -rf /usr/bin/lzop; ln -s /usr/local/bin/lzop /usr/bin/lzop
-wget ${URL}/hadoop-lzo-0.4.21-SNAPSHOT.jar; mv hadoop-lzo-0.4.21-SNAPSHOT.jar hadoop/share/hadoop/common/
+wget ${URL}/hadoop-lzo-0.4.20.jar; mv hadoop-lzo-0.4.20.jar hadoop/share/hadoop/common/
 
 # jdk
 cd /usr/; rm -rf ${JDK_PACKAGE} jdk; wget ${URL}/${JDK_PACKAGE}; tar -xzvf ${JDK_PACKAGE};

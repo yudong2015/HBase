@@ -6,7 +6,7 @@
         "zk_service": {{cluster.zk_service}}
     },
     "upgrade_policy": [
-        "appv-y0dunpcc"
+        "appv-getwsqed"
     ],
     "upgrading_policy": "parallel",
     "nodes": [
@@ -15,8 +15,8 @@
         "user_access": true,
         "container": {
             "type": "kvm",
-            "image": "img-hjxv39aq",
-            "zone": "pek3"
+            "image": "img-2i7dwokm",
+            "zone": "ap2a"
         },
         "count": {{cluster.hbase-client.count}},
         "cpu": {{cluster.hbase-client.cpu}},
@@ -48,8 +48,8 @@
         "role": "hbase-master",
         "container": {
             "type": "lxc",
-            "image": "img-dmtvrcsa",
-            "zone": "pek3"
+            "image": "img-jny58wdn",
+            "zone": "ap2a"
         },
         "count": 1,
         "cpu": {{cluster.hbase-master.cpu}},
@@ -117,8 +117,8 @@
         "role": "hbase-hdfs-master",
         "container": {
             "type": "lxc",
-            "image": "img-dmtvrcsa",
-            "zone": "pek3"
+            "image": "img-jny58wdn",
+            "zone": "ap2a"
         },
         "count": 1,
         "cpu": {{cluster.hbase-hdfs-master.cpu}},
@@ -267,8 +267,8 @@
         "role": "hbase-slave",
         "container": {
             "type": "lxc",
-            "image": "img-dmtvrcsa",
-            "zone": "pek3"
+            "image": "img-jny58wdn",
+            "zone": "ap2a"
         },
 	    "instance_class": {{cluster.hbase-slave.instance_class}},
         "count": {{cluster.hbase-slave.count}},

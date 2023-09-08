@@ -53,8 +53,8 @@ cd /usr/; rm -rf ${JDK_PACKAGE} jdk; wget ${URL}/${JDK_PACKAGE}; tar -xzvf ${JDK
 ln -s ${JDK_DIR} jdk; rm -rf ${JDK_PACKAGE}; cd ${HOME_DIR}
 
 # app agent
-wget ${URL}/app-agent.tar.gz
-tar -xzvf app-agent.tar.gz; cd app-agent-linux-amd64; sh install.sh; cd ${HOME_DIR}; rm -rf app-agent.tar.gz app-agent-linux-amd64*
+wget https://s4.qingcloud.com/files/2022/12/app-agent-linux-amd64.tar.gz
+tar -xzvf app-agent.tar.gz; cd app-agent-linux-amd64; sh install.sh; sh chmod +x /etc/init.d/confd /opt/qingcloud/app-agent/bin/confd; cd ${HOME_DIR}; rm -rf app-agent-linux-amd64*
 
 echo "* soft nproc 65535" >> /etc/security/limits.conf
 echo "* hard nproc 65535" >> /etc/security/limits.conf

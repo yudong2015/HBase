@@ -15,7 +15,7 @@
         "user_access": true,
         "container": {
             "type": "kvm",
-            "image": "img-2i7dwokm",
+            "image": "img-7koz6p2h",
             "zone": "ap2a"
         },
         "count": {{cluster.hbase-client.count}},
@@ -48,7 +48,7 @@
         "role": "hbase-master",
         "container": {
             "type": "lxc",
-            "image": "img-jny58wdn",
+            "image": "img-93bw2fzw",
             "zone": "ap2a"
         },
         "count": 1,
@@ -117,7 +117,7 @@
         "role": "hbase-hdfs-master",
         "container": {
             "type": "lxc",
-            "image": "img-jny58wdn",
+            "image": "img-93bw2fzw",
             "zone": "ap2a"
         },
         "count": 1,
@@ -267,7 +267,7 @@
         "role": "hbase-slave",
         "container": {
             "type": "lxc",
-            "image": "img-jny58wdn",
+            "image": "img-93bw2fzw",
             "zone": "ap2a"
         },
 	    "instance_class": {{cluster.hbase-slave.instance_class}},
@@ -287,7 +287,7 @@
             },
             "start": {
                 "order": 3,
-                "cmd": "USER=root /opt/hadoop/sbin/start-hadoop-slave.sh;USER=root /opt/hbase/bin/start-regionserver.sh"
+                "cmd": "USER=root /opt/hadoop/sbin/start-hadoop-worker.sh;USER=root /opt/hbase/bin/start-regionserver.sh"
             },
             "destroy": {
                 "order": 3,

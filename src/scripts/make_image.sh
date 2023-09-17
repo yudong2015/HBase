@@ -56,6 +56,9 @@ ln -s ${JDK_DIR} jdk; rm -rf ${JDK_PACKAGE}; cd ${HOME_DIR}
 wget https://s4.qingcloud.com/files/2022/12/app-agent-linux-amd64.tar.gz
 tar -xzvf app-agent-linux-amd64.tar.gz; cd app-agent-linux-amd64; sh install.sh; chmod +x /etc/init.d/confd /opt/qingcloud/app-agent/bin/confd; cd ${HOME_DIR}; rm -rf app-agent-linux-amd64*
 
+# setup python with python2
+apt update && apt install -y python2 && ln -s /usr/bin/python2 /usr/bin/python && apt clean
+
 echo "* soft nproc 65535" >> /etc/security/limits.conf
 echo "* hard nproc 65535" >> /etc/security/limits.conf
 echo "* soft nofile 65535" >> /etc/security/limits.conf

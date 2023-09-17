@@ -224,19 +224,19 @@ export HADOOP_PID_DIR=${HADOOP_DATA_HOME}/pids
 
 # Default log4j setting for interactive commands
 # Java property: hadoop.root.logger
-export HADOOP_ROOT_LOGGER=INFO,console
+export HADOOP_ROOT_LOGGER=INFO,DRFA
 
 # Default log4j setting for daemons spawned explicitly by
 # --daemon option of hadoop, hdfs, mapred and yarn command.
 # Java property: hadoop.root.logger
-export HADOOP_DAEMON_ROOT_LOGGER=INFO,RFAS
+export HADOOP_DAEMON_ROOT_LOGGER=INFO,DRFA
 
 # Default log level and output location for security-related messages.
 # You will almost certainly want to change this on a per-daemon basis via
 # the Java property (i.e., -Dhadoop.security.logger=foo). (Note that the
 # defaults for the NN and 2NN override this by default.)
 # Java property: hadoop.security.logger
-export HADOOP_SECURITY_LOGGER=INFO,NullAppender
+export HADOOP_SECURITY_LOGGER=INFO,DRFAS
 
 # Default process priority level
 # Note that sub-processes will also run at this level!
@@ -296,7 +296,7 @@ export HADOOP_SECURE_IDENT_PRESERVE="true"
 # messages. For non-namenode daemons, the Java property must be set in
 # the appropriate _OPTS if one wants something other than INFO,NullAppender
 # Java property: hdfs.audit.logger
-export HDFS_AUDIT_LOGGER=INFO,NullAppender
+# export HDFS_AUDIT_LOGGER=INFO,NullAppender
 
 # Specify the JVM options to be used when starting the NameNode.
 # These options will be appended to the options specified as HADOOP_OPTS

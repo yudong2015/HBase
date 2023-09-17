@@ -193,9 +193,6 @@ export HADOOP_OS_TYPE=${HADOOP_OS_TYPE:-$(uname -s)}
 ###
 # Options for all daemons
 ###
-#
-
-export HADOOP_DATA_HOME=/data/hadoop
 
 #
 # Many options may also be specified as Java properties.  It is
@@ -209,7 +206,7 @@ export HADOOP_DATA_HOME=/data/hadoop
 # Where (primarily) daemon log files are stored.
 # ${HADOOP_HOME}/logs by default.
 # Java property: hadoop.log.dir
-export HADOOP_LOG_DIR=${HADOOP_DATA_HOME}/logs
+export HADOOP_LOG_DIR=/data/hadoop/logs
 
 # A string representing this instance of hadoop. $USER by default.
 # This is used in writing log and pid files, so keep that in mind!
@@ -220,7 +217,7 @@ export HADOOP_IDENT_STRING=$USER
 # export HADOOP_STOP_TIMEOUT=5
 
 # Where pid files are stored.  /tmp by default.
-export HADOOP_PID_DIR=${HADOOP_DATA_HOME}/pids
+export HADOOP_PID_DIR=/data/hadoop/pids
 
 # Default log4j setting for interactive commands
 # Java property: hadoop.root.logger

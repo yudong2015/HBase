@@ -15,8 +15,8 @@
         "user_access": true,
         "container": {
             "type": "kvm",
-            "image": "img-7koz6p2h",
-            "zone": "ap2a"
+            "image": "img-5lcamtbl",
+            "zone": "sh1"
         },
         "count": {{cluster.hbase-client.count}},
         "cpu": {{cluster.hbase-client.cpu}},
@@ -27,7 +27,7 @@
             "filesystem": "ext4"
         },
         "instance_class": {{cluster.hbase-client.instance_class}},
-        "passphraseless": "ssh-dsa",
+        "passphraseless": "ssh-rsa",
         "advanced_actions": ["change_vxnet", "scale_horizontal"],
         "services": {
             "start": {
@@ -48,8 +48,8 @@
         "role": "hbase-master",
         "container": {
             "type": "lxc",
-            "image": "img-93bw2fzw",
-            "zone": "ap2a"
+            "image": "img-scr5ennj",
+            "zone": "sh1"
         },
         "count": 1,
         "cpu": {{cluster.hbase-master.cpu}},
@@ -60,7 +60,7 @@
             "filesystem": "ext4"
         },
         "instance_class": {{cluster.hbase-master.instance_class}},
-        "passphraseless": "ssh-dsa",
+        "passphraseless": "ssh-rsa",
         "advanced_actions": ["change_vxnet"],
         "services": {
             "start": {
@@ -117,8 +117,8 @@
         "role": "hbase-hdfs-master",
         "container": {
             "type": "lxc",
-            "image": "img-93bw2fzw",
-            "zone": "ap2a"
+            "image": "img-scr5ennj",
+            "zone": "sh1"
         },
         "count": 1,
         "cpu": {{cluster.hbase-hdfs-master.cpu}},
@@ -129,7 +129,7 @@
             "filesystem": "ext4"
         },
         "instance_class": {{cluster.hbase-hdfs-master.instance_class}},
-        "passphraseless":"ssh-dsa",
+        "passphraseless": "ssh-rsa",
         "advanced_actions": ["change_vxnet"],
         "services": {
             "init": {
@@ -267,8 +267,8 @@
         "role": "hbase-slave",
         "container": {
             "type": "lxc",
-            "image": "img-93bw2fzw",
-            "zone": "ap2a"
+            "image": "img-scr5ennj",
+            "zone": "sh1"
         },
 	    "instance_class": {{cluster.hbase-slave.instance_class}},
         "count": {{cluster.hbase-slave.count}},
@@ -283,11 +283,11 @@
         "services": {
             "stop": {
                 "order": 3,
-                "cmd": "USER=root /opt/hbase/bin/hbase-daemon.sh stop regionserver;USER=root /opt/hadoop/sbin/hadoop-daemon.sh stop datanode"
+                "cmd": "USER=root /opt/hbase/bin/hbase-daemon.sh stop regionserver"
             },
             "start": {
                 "order": 3,
-                "cmd": "USER=root /opt/hadoop/sbin/start-hadoop-worker.sh;USER=root /opt/hbase/bin/start-regionserver.sh"
+                "cmd": "USER=root /opt/hbase/bin/start-regionserver.sh"
             },
             "destroy": {
                 "order": 3,

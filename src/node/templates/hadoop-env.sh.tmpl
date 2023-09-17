@@ -306,7 +306,7 @@ export HADOOP_SECURE_IDENT_PRESERVE="true"
 # export HDFS_NAMENODE_OPTS="-Dcom.sun.management.jmxremote=true -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.port=1026"
 #
 # b) Set garbage collection logs
-export HDFS_NAMENODE_OPTS="${HADOOP_GC_SETTINGS} -Xloggc:${HADOOP_LOG_DIR}/gc-rm.log-$(date +'%Y%m%d%H%M')"
+export HDFS_NAMENODE_OPTS="-Dhadoop.security.logger=${HADOOP_SECURITY_LOGGER} ${HADOOP_GC_SETTINGS} -Xloggc:${HADOOP_LOG_DIR}/gc-rm.log-$(date +'%Y%m%d%H%M')"
 #
 # c) ... or set them directly
 # export HDFS_NAMENODE_OPTS="-verbose:gc -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps -Xloggc:${HADOOP_LOG_DIR}/gc-rm.log-$(date +'%Y%m%d%H%M')"
@@ -322,7 +322,7 @@ export HDFS_NAMENODE_OPTS="${HADOOP_GC_SETTINGS} -Xloggc:${HADOOP_LOG_DIR}/gc-rm
 # and therefore may override any similar flags set in HADOOP_OPTS
 #
 # This is the default:
-export HDFS_SECONDARYNAMENODE_OPTS="-Dhadoop.security.logger=${HADOOP_SECURITY_LOGGER} -Dhdfs.audit.logger=${HDFS_AUDIT_LOGGER} $HDFS_SECONDARYNAMENODE_OPTS"
+export HDFS_SECONDARYNAMENODE_OPTS="-Dhadoop.security.logger=${HADOOP_SECURITY_LOGGER}"
 
 ###
 # DataNode specific parameters
@@ -332,7 +332,7 @@ export HDFS_SECONDARYNAMENODE_OPTS="-Dhadoop.security.logger=${HADOOP_SECURITY_L
 # and therefore may override any similar flags set in HADOOP_OPTS
 #
 # This is the default:
-export HDFS_DATANODE_OPTS="-Dhadoop.security.logger=ERROR,RFAS $HDFS_DATANODE_OPTS"
+export HDFS_DATANODE_OPTS="-Dhadoop.security.logger=ERROR,DRFAS"
 
 # On secure datanodes, user to run the datanode as after dropping privileges.
 # This **MUST** be uncommented to enable secure HDFS if using privileged ports

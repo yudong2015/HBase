@@ -7,11 +7,21 @@ then
 fi
 
 
+HBASE_HOME=/opt/hbase
+echo "clean local jars of hbase-regionservers.."
+for regionserver in `cat "${HBASE_HOME}/conf/regionservers"`; do
+  if [ "x${regionserver}" != "x" ]; then
+    ssh "${regionserver}" "rm /data/hbase/tmp/local/jars/*.jar"
+  fi
+done
+
+
 echo "rolling restart regionservers.."
-USER=root /opt/hbase/bin/rolling-restart.sh --rs-only
+USER=root ${HBASE_HOME}/bin/rolling-restart.sh --rs-only
+
 
 echo "enable balancer .."
-BALANCER_STATE=$(echo 'balancer_enabled' | /opt/hbase/bin/hbase --config /opt/hbase/conf shell -n | tail -1)
+BALANCER_STATE=$(echo 'balancer_enabled' | /opt/hbase/bin/hbase --config ${HBASE_HOME}/conf shell -n | tail -1)
 if [ "x${BALANCER_STATE}" = "xtrue" ]
 then
   echo "balancer is enabled, ignore."

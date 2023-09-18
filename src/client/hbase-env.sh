@@ -33,7 +33,8 @@ export HADOOP_CONF_DIR=${HBASE_HOME}/conf
 
 
 # Extra Java CLASSPATH elements.  Optional.
-# export HBASE_CLASSPATH=
+export HBASE_CLASSPATH=/opt/hadoop/share/hadoop/common/lib/*:/opt/hadoop/share/hadoop/common/*:/opt/hadoop/share/hadoop/hdfs:/opt/hadoop/share/hadoop/hdfs/lib/*:/opt/hadoop/share/hadoop/hdfs/*
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/opt/hadoop/lib/native/
 
 # The maximum amount of heap to use. Default is left to JVM default.
 # export HBASE_HEAPSIZE=1G
@@ -128,7 +129,7 @@ export HBASE_OPTS="-XX:+UseConcMarkSweepGC"
 # export HBASE_SLAVE_SLEEP=0.1
 
 # Tell HBase whether it should manage it's own instance of ZooKeeper or not.
-# export HBASE_MANAGES_ZK=true
+export HBASE_MANAGES_ZK=false
 
 # The default log rolling policy is RFA, where the log file is rolled as per the size defined for the
 # RFA appender. Please refer to the log4j.properties file to see more details on this appender.

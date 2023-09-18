@@ -38,7 +38,8 @@ export HADOOP_CONF_DIR=${HBASE_HOME}/conf
 export HBASE_LOG_DIR=/data/hbase/logs
 
 # Extra Java CLASSPATH elements.  Optional.
-# export HBASE_CLASSPATH=
+export HBASE_CLASSPATH=/opt/hadoop/share/hadoop/common/lib/*:/opt/hadoop/share/hadoop/common/*:/opt/hadoop/share/hadoop/hdfs:/opt/hadoop/share/hadoop/hdfs/lib/*:/opt/hadoop/share/hadoop/hdfs/*
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/opt/hadoop/lib/native/
 
 # The maximum amount of heap to use. Default is left to JVM default.
 # export HBASE_HEAPSIZE=1G
@@ -149,7 +150,7 @@ export HBASE_PID_DIR=/data/hbase/pids
 # export HBASE_SLAVE_SLEEP=0.1
 
 # Tell HBase whether it should manage it's own instance of ZooKeeper or not.
-# export HBASE_MANAGES_ZK=true
+export HBASE_MANAGES_ZK=false
 
 # The default log rolling policy is RFA, where the log file is rolled as per the size defined for the
 # RFA appender. Please refer to the log4j.properties file to see more details on this appender.
@@ -163,7 +164,7 @@ export HBASE_SECURITY_LOGGER=INFO,DRFAS
 
 # Tell HBase whether it should include Hadoop's lib when start up,
 # the default value is false,means that includes Hadoop's lib.
-# export HBASE_DISABLE_HADOOP_CLASSPATH_LOOKUP="true"
+export HBASE_DISABLE_HADOOP_CLASSPATH_LOOKUP="true"
 
 # Override text processing tools for use by these launch scripts.
 # export GREP="${GREP-grep}"

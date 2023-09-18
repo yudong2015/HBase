@@ -1,0 +1,21 @@
+#!/bin/sh
+
+role='{{getv "/host/role"}}'
+if [ "x$role" != "xhbase-master" ]
+then
+    exit 0
+fi
+
+
+echo "rolling restart regionservers.."
+USER=root /opt/hbase/bin/rolling-restart.sh --rs-only
+
+echo "enable balancer .."
+BALANCER_STATE=$(echo 'balancer_enabled' | /opt/hbase/bin/hbase --config /opt/hbase/conf shell -n | tail -1)
+if [ "x${BALANCER_STATE}" = "xtrue" ]
+then
+  echo "balancer is enabled, ignore."
+else
+  echo "switch balancer to true.."
+  echo balance_switch true | /opt/hbase/bin/hbase shell
+fi

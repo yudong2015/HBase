@@ -1,0 +1,7 @@
+[template]
+src = "restart-rs.sh.tmpl"
+dest = "/opt/hbase/bin/restart-rs.sh"
+mode = "0777"
+keys = [
+  "/",
+]

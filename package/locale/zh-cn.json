@@ -108,5 +108,6 @@
   "16C32G": "16核32G",
   "32C64G": "32核64G",
   "err_code1": "禁止同时删除多个从节点",
+  "Restart HDFS": "重启 HDFS",
   "Restart RS": "重启 RegionServer"
 }

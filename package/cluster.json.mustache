@@ -156,6 +156,12 @@
             "destroy": {
                 "order": 1,
                 "cmd": "USER=root /usr/bin/python /opt/hadoop/sbin/destroy.py"
+            },
+            "Restart HDFS": {
+                "type": "custom",
+                "cmd": "USER=root /opt/hadoop/sbin/restart-dfs.sh",
+                "nodes_to_execute_on": 1,
+                "timeout": 600
             }
         },
         "health_check": {

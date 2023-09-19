@@ -48,7 +48,7 @@
         "role": "hbase-master",
         "container": {
             "type": "lxc",
-            "image": "img-miul7m0t",
+            "image": "img-01m6ewv1",
             "zone": "sh1"
         },
         "count": 1,
@@ -117,7 +117,7 @@
         "role": "hbase-hdfs-master",
         "container": {
             "type": "lxc",
-            "image": "img-miul7m0t",
+            "image": "img-01m6ewv1",
             "zone": "sh1"
         },
         "count": 1,
@@ -156,6 +156,15 @@
             "destroy": {
                 "order": 1,
                 "cmd": "USER=root /usr/bin/python /opt/hadoop/sbin/destroy.py"
+            },
+            "HDFS Balancer": {
+                "type": "custom",
+                "cmd": "USER=root /opt/hadoop/sbin/hdfs-balancer.sh",
+                "nodes_to_execute_on": 1,
+                "timeout": 600,
+                "service_params": {
+                   "threshold": {{service_params.hbase-hdfs-master.balancer-threshold}}
+                }
             },
             "Restart HDFS": {
                 "type": "custom",
@@ -273,7 +282,7 @@
         "role": "hbase-slave",
         "container": {
             "type": "lxc",
-            "image": "img-miul7m0t",
+            "image": "img-01m6ewv1",
             "zone": "sh1"
         },
 	    "instance_class": {{cluster.hbase-slave.instance_class}},

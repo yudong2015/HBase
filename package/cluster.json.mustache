@@ -48,7 +48,7 @@
         "role": "hbase-master",
         "container": {
             "type": "lxc",
-            "image": "img-g5pz1hn0",
+            "image": "img-l1xvp8dg",
             "zone": "sh1"
         },
         "count": 1,
@@ -79,6 +79,12 @@
             "destroy": {
                 "order": 2,
                 "cmd": "USER=root /usr/bin/python /opt/hadoop/sbin/destroy.py"
+            },
+            "Restart HBase": {
+                "type": "custom",
+                "cmd": "USER=root /opt/hbase/bin/restart-hbase.sh",
+                "nodes_to_execute_on": 1,
+                "timeout": 1800
             },
             "Restart RS": {
                 "type": "custom",
@@ -117,7 +123,7 @@
         "role": "hbase-hdfs-master",
         "container": {
             "type": "lxc",
-            "image": "img-g5pz1hn0",
+            "image": "img-l1xvp8dg",
             "zone": "sh1"
         },
         "count": 1,
@@ -282,7 +288,7 @@
         "role": "hbase-slave",
         "container": {
             "type": "lxc",
-            "image": "img-g5pz1hn0",
+            "image": "img-l1xvp8dg",
             "zone": "sh1"
         },
 	    "instance_class": {{cluster.hbase-slave.instance_class}},

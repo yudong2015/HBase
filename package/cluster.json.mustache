@@ -48,7 +48,7 @@
         "role": "hbase-master",
         "container": {
             "type": "lxc",
-            "image": "img-l1xvp8dg",
+            "image": "img-erum9nps",
             "zone": "sh1"
         },
         "count": 1,
@@ -123,7 +123,7 @@
         "role": "hbase-hdfs-master",
         "container": {
             "type": "lxc",
-            "image": "img-l1xvp8dg",
+            "image": "img-erum9nps",
             "zone": "sh1"
         },
         "count": 1,
@@ -171,12 +171,6 @@
                 "service_params": {
                    "threshold": {{service_params.hbase-hdfs-master.balancer-threshold}}
                 }
-            },
-            "Restart HDFS": {
-                "type": "custom",
-                "cmd": "USER=root /opt/hadoop/sbin/restart-dfs.sh",
-                "nodes_to_execute_on": 1,
-                "timeout": 600
             }
         },
         "health_check": {
@@ -288,7 +282,7 @@
         "role": "hbase-slave",
         "container": {
             "type": "lxc",
-            "image": "img-l1xvp8dg",
+            "image": "img-erum9nps",
             "zone": "sh1"
         },
 	    "instance_class": {{cluster.hbase-slave.instance_class}},

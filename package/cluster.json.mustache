@@ -146,6 +146,10 @@
                 "order": 1,
                 "cmd": "USER=root /opt/hadoop/sbin/start-dfs.sh"
             },
+            "start": {
+                "order": 1,
+                "cmd": "USER=root /opt/hadoop/sbin/upgrade-hdfs.sh"
+            },
             "stop": {
                 "order": 2,
                 "cmd": "USER=root /opt/hadoop/sbin/stop-dfs.sh"

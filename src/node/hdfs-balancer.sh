@@ -2,4 +2,4 @@
 
 Threshold=$(echo "$@" | jq .threshold)
 
-/opt/hadoop/sbin/start-balancer.sh -threshold ${Threshold}
+nohup /opt/hadoop/sbin/start-balancer.sh -threshold ${Threshold} &

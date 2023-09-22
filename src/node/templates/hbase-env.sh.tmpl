@@ -128,9 +128,9 @@ role='{{getv "/host/role"}}'
 if [ "x$role" = "xhbase-master" ]
 then
     half_free=$(expr $total_free / 2)
-    export HBASE_MASTER_OPTS="-Xmx${half_free}m -Xms${half_free}m "
+    export HBASE_MASTER_OPTS="-Xmx${half_free}m -Xms${half_free}m -Xloggc:${HBASE_LOG_DIR}/gc-master.log"
 else
-    export HBASE_REGIONSERVER_OPTS="-Xmx${total_free}m -Xms${total_free}m "
+    export HBASE_REGIONSERVER_OPTS="-Xmx${total_free}m -Xms${total_free}m -Xloggc:${HBASE_LOG_DIR}/gc-regionserver.log"
 fi
 
 # A string representing this instance of hbase. $USER by default.

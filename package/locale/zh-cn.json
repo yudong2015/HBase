@@ -55,7 +55,6 @@
   "Make major compaction at this time, -1 to disable": "设置每天手动 Major Compaction 的整点时间，设为-1则取消手动 Compaction",
   "Enable phoenix on this cluster or not": "是否开启 Phoenix 查询引擎功能",
   "Enable phoenix udf or not": "是否开启 Phoenix UDF",
-  "Enable phoenix transations or not": "是否开启 Phoenix ACID 事务",
   "number": "个",
   "number per second": "个/秒",
   "ms": "毫秒",

@@ -565,15 +565,6 @@
           "default": "false",
           "range": ["true", "false"],
           "required":"no"
-        },
-        {
-          "key": "phoenix.transactions.enabled",
-          "label": "phoenix.transactions.enabled",
-          "description": "Enable phoenix transations or not",
-          "type": "string",
-          "default": "false",
-          "range": ["true", "false"],
-          "required":"no"
         }
       ]
     }, {
